@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/colors.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/typography.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/effects.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/base.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/styles.css">
+<script src="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/_ds_bundle.js"></script>
+<style>html,body{margin:0;padding:0;background:#fbf9f8;} a{color:#000;} a:hover{color:#4c4546;}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--paper);display:flex;flex-direction:column;" data-screen-label="The Lab">
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.TopNavBar" links="{{ navLinks }}" active="The Lab" cta="Hire Us (Maybe)" logo-src="assets/logo-sloth-small.jpg" on-navigate="{{ nav }}" on-cta="{{ goHire }}" hint-size="100%,72px"></x-import>
+  <section style="border-bottom:2px solid var(--ink);background-image:linear-gradient(rgba(0,0,0,0.025) 2px, transparent 2px),linear-gradient(90deg, rgba(0,0,0,0.025) 2px, transparent 2px);background-size:40px 40px;">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">THE LAB</x-import>
+      <h1 style="margin:0;font:var(--type-display-lg);letter-spacing:var(--ls-display-lg);text-transform:uppercase;color:var(--ink);white-space:pre-line;">Experiments in
+doing less.</h1>
+      <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:640px;">Unsupervised scripts, questionable prototypes, and one project we legally abandoned. Everything here is experimental. Some of it works.</p>
+      <div style="width:100%;max-width:480px;">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.LazyLoader" label="RUNNING EXPERIMENTS... (UNSUPERVISED)" hint-size="100%,32px"></x-import>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+      <sc-for list="{{ experiments }}" as="e" hint-placeholder-count="4">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="{{ e.surface }}" dashed="{{ e.dead }}" interactive="{{ e.alive }}" hint-size="100%,280px">
+          <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
+            <div style="display:flex;width:100%;justify-content:space-between;align-items:flex-start;gap:16px;">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.IconTile" name="{{ e.icon }}" size="{{ 48 }}" surface="{{ e.tile }}" hint-size="48px,48px"></x-import>
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Chip" variant="status" hint-size="auto,32px">{{ e.status }}</x-import>
+            </div>
+            <h3 style="margin:0;font:700 24px/32px var(--font-display);letter-spacing:-0.96px;color:{{ e.titleColor }};">{{ e.name }}</h3>
+            <p style="margin:0;font:var(--type-body-md);color:{{ e.bodyColor }};">{{ e.desc }}</p>
+            <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:var(--text-ghost);">{{ e.log }}</span>
+          </div>
+        </x-import>
+      </sc-for>
+    </div>
+  </section>
+  <section style="border-top:2px solid var(--ink);background:var(--ink);">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+        <h2 style="margin:0;font:var(--type-headline-lg);letter-spacing:var(--ls-headline-lg);text-transform:uppercase;color:var(--white);">Want an experiment built for your business?</h2>
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="inverse" size="lg" arrow="{{ true }}" on-click="{{ goHire }}" hint-size="auto,56px">Fund Our Laziness</x-import>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font:500 16px/28px var(--font-mono);color:#c6c6c6;box-shadow:inset 0 0 0 2px var(--white);padding:32px;">
+        <span style="color:var(--text-ghost);">// lab terminal</span>
+        <span>&gt; sudo generate --target="PM"</span>
+        <span>&gt; excuse compiled in 0.02s</span>
+        <span style="color:var(--white);">"IT'S BASICALLY DONE, JUST POLISHING."</span>
+      </div>
+    </div>
+  </section>
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Footer" variant="dark" hint-size="100%,160px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const mk = (o) => ({ surface: 'paper', tile: 'grey', dead: false, alive: true, titleColor: 'var(--ink)', bodyColor: 'var(--text-body)', ...o });
+    return {
+      navLinks: ['Tools', 'Manifesto', 'The Lab', 'Pricing', 'About', 'Blog'],
+      nav: (l) => { const m = { Home: 'Home.dc.html', Tools: 'Tools.dc.html', Manifesto: 'Manifesto.dc.html', 'The Lab': 'TheLab.dc.html', Pricing: 'Pricing.dc.html', About: 'About.dc.html', Blog: 'Blog.dc.html' }; window.location.href = m[l] || 'Home.dc.html'; },
+      goHire: () => { window.location.href = 'HireUs.dc.html'; },
+      experiments: [
+        mk({ icon: 'tv', status: 'LIVE (SOMEHOW)', name: 'Netflix Auto-Watcher', desc: 'Watches your shows and writes a recap so you can nap through prestige television guilt-free.', log: 'LAST RUN: 6 SEASONS, 0 MEMORIES' }),
+        mk({ icon: 'local_pizza', status: 'INCUBATING', name: 'Pizza Router', desc: 'Calculates the optimal pizza order for any team size, deadline, and level of despair.', log: 'ACCURACY: 94% (PINEAPPLE EDGE CASES)' }),
+        mk({ icon: 'terminal', status: 'LIVE (SOMEHOW)', name: 'Excuse Gen', desc: 'The original excuse generator. Now with quarterly-review mode and plausible weather events.', log: 'UPTIME: DEPENDS WHO\u2019S ASKING' }),
+        mk({ icon: 'skull', status: 'ABANDONED', name: 'Project "NOPE"', desc: 'We can\u2019t tell you what it was. The name says everything you need to know.', log: 'CAUSE OF DEATH: EFFORT REQUIRED', dead: true, alive: false, titleColor: 'var(--outline)', bodyColor: 'var(--text-muted)' }),
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

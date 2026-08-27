@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/colors.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/typography.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/effects.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/base.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/styles.css">
+<script src="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/_ds_bundle.js"></script>
+<style>html,body{margin:0;padding:0;background:#fbf9f8;} a{color:#000;} a:hover{color:#4c4546;}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--paper);display:flex;flex-direction:column;" data-screen-label="Pricing">
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.TopNavBar" links="{{ navLinks }}" active="Pricing" cta="Hire Us (Maybe)" logo-src="assets/logo-sloth-small.jpg" on-navigate="{{ nav }}" on-cta="{{ goHire }}" hint-size="100%,72px"></x-import>
+  <section style="border-bottom:2px solid var(--ink);background-image:linear-gradient(rgba(0,0,0,0.025) 2px, transparent 2px),linear-gradient(90deg, rgba(0,0,0,0.025) 2px, transparent 2px);background-size:40px 40px;">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">PRICING</x-import>
+      <h1 style="margin:0;font:var(--type-display-lg);letter-spacing:var(--ls-display-lg);text-transform:uppercase;color:var(--ink);white-space:pre-line;">Pay for results.
+Not for effort.</h1>
+      <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:640px;">Three packages, one custom option. All prices are sample numbers until you talk to us (we kept the spreadsheet closed on purpose).</p>
+    </div>
+  </section>
+  <section style="border-bottom:2px solid var(--ink);">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;">
+      <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="{{ t.surface }}" interactive="{{ true }}" hint-size="100%,480px">
+          <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;height:100%;">
+            <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Chip" variant="{{ t.chipVariant }}" hint-size="auto,24px">{{ t.tag }}</x-import>
+            <h2 style="margin:0;font:700 32px/40px var(--font-display);letter-spacing:-1.28px;text-transform:uppercase;color:{{ t.titleColor }};">{{ t.name }}</h2>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <span style="font:var(--type-display-lg);letter-spacing:var(--ls-display-lg);color:{{ t.titleColor }};">{{ t.price }}</span>
+              <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:var(--text-ghost);">{{ t.per }}</span>
+            </div>
+            <p style="margin:0;font:var(--type-body-md);color:{{ t.bodyColor }};">{{ t.desc }}</p>
+            <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
+              <sc-for list="{{ t.points }}" as="tp" hint-placeholder-count="4">
+                <div style="display:flex;gap:12px;align-items:baseline;font:var(--type-body-md);color:{{ t.bodyColor }};"><span style="font:500 12px/24px var(--font-mono);color:{{ t.titleColor }};">[OK]</span><span>{{ tp }}</span></div>
+              </sc-for>
+            </div>
+            <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="{{ t.btn }}" size="md" arrow="{{ true }}" block="{{ true }}" on-click="{{ goHire }}" hint-size="100%,48px">{{ t.cta }}</x-import>
+          </div>
+        </x-import>
+      </sc-for>
+    </div>
+  </section>
+  <section style="border-bottom:2px solid var(--ink);background:var(--surface-card-alt);">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+        <h2 style="margin:0;font:var(--type-headline-lg);letter-spacing:var(--ls-headline-lg);text-transform:uppercase;color:var(--ink);">Something weirder? Custom quote.</h2>
+        <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:520px;">Every business has one workflow that makes everyone sigh. Describe yours and we'll quote exactly what it costs to never think about it again.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="primary" size="lg" arrow="{{ true }}" on-click="{{ goHire }}" hint-size="auto,56px">Request a Quote</x-import>
+        <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:var(--text-ghost);">QUOTES IN 48H. NAPS PERMITTING.</span>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:48px;">
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">FAQ (RELUCTANTLY)</x-import>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:840px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+          <div style="background:var(--surface-card);box-shadow:var(--edge-2);">
+            <button onClick="{{ f.toggle }}" style="display:flex;width:100%;justify-content:space-between;align-items:center;gap:24px;background:none;border:none;padding:20px 24px;cursor:pointer;text-align:left;">
+              <span style="font:700 20px/28px var(--font-display);letter-spacing:-0.8px;color:var(--ink);">{{ f.q }}</span>
+              <span style="font:500 20px/28px var(--font-mono);color:var(--ink);flex-shrink:0;">{{ f.mark }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 24px 20px;border-top:1px solid var(--ink);">
+                <p style="margin:16px 0 0;font:var(--type-body-md);color:var(--text-body);">{{ f.a }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Footer" variant="dark" hint-size="100%,160px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    const faqData = [
+      { q: 'Are these prices real?', a: 'They\u2019re sample numbers. Real quotes come after one short call where you describe the problem and we quietly estimate how automatable it is (usually: very).' },
+      { q: 'How fast do you actually ship?', a: 'Sprint projects ship in 2\u20134 weeks. We\u2019re lazy about everything except deadlines \u2014 missing one creates more work later, and we refuse.' },
+      { q: 'Do you work with businesses outside tech?', a: 'Yes \u2014 that\u2019s most of our work. Retail, e-commerce, services. If your business has a repetitive task, it\u2019s our favorite kind of business.' },
+      { q: 'What happens after launch?', a: 'The Retainer tier exists so you never think about servers again. Otherwise we hand over clean code, documentation, and our sincere wishes.' },
+      { q: 'Why should we trust a company that brags about being lazy?', a: 'Lazy engineers automate, simplify, and document \u2014 because they never want to touch it twice. That\u2019s exactly who you want building your software.' },
+    ];
+    return {
+      navLinks: ['Tools', 'Manifesto', 'The Lab', 'Pricing', 'About', 'Blog'],
+      nav: (l) => { const m = { Home: 'Home.dc.html', Tools: 'Tools.dc.html', Manifesto: 'Manifesto.dc.html', 'The Lab': 'TheLab.dc.html', Pricing: 'Pricing.dc.html', About: 'About.dc.html', Blog: 'Blog.dc.html' }; window.location.href = m[l] || 'Home.dc.html'; },
+      goHire: () => { window.location.href = 'HireUs.dc.html'; },
+      tiers: [
+        { tag: 'THE NAP', chipVariant: 'version', name: 'Sprint', price: '$4.9K', per: 'PER PROJECT \u2014 SAMPLE PRICE', desc: 'One focused problem, solved in 2\u20134 weeks.', points: ['One web or mobile app module', 'Design + build + deploy', 'Two revision rounds (we nap between)', '30 days of bug fixes'], surface: 'paper', titleColor: 'var(--ink)', bodyColor: 'var(--text-body)', btn: 'secondary', cta: 'Start a Sprint' },
+        { tag: 'MOST EFFICIENT', chipVariant: 'tag', name: 'Build', price: '$14K', per: 'PER PRODUCT \u2014 SAMPLE PRICE', desc: 'A full product, end to end. Like Born To Glow, but yours.', points: ['Full web/mobile product', 'Admin dashboard included', 'Payments, auth, the boring parts', '90 days of support', 'Handover docs humans can read'], surface: 'dark', titleColor: 'var(--white)', bodyColor: '#c6c6c6', btn: 'inverse', cta: 'Build a Product' },
+        { tag: 'THE HAMMOCK', chipVariant: 'version', name: 'Retainer', price: '$2.4K', per: 'PER MONTH \u2014 SAMPLE PRICE', desc: 'We keep everything running while you do literally anything else.', points: ['Ongoing features + fixes', 'Monitoring (we set alarms)', 'Priority response: 24h', 'Monthly \u201cstill alive\u201d report'], surface: 'paper', titleColor: 'var(--ink)', bodyColor: 'var(--text-body)', btn: 'secondary', cta: 'Stay Lazy' },
+      ],
+      faqs: faqData.map((f, i) => ({ ...f, open: this.state.open === i, mark: this.state.open === i ? '\u2212' : '+', toggle: () => this.setState({ open: this.state.open === i ? -1 : i }) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

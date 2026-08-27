@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/colors.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/typography.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/effects.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/base.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/styles.css">
+<script src="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/_ds_bundle.js"></script>
+<style>html,body{margin:0;padding:0;background:#fbf9f8;} a{color:#000;} a:hover{color:#4c4546;}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--paper);display:flex;flex-direction:column;" data-screen-label="Tools">
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.TopNavBar" links="{{ navLinks }}" active="Tools" cta="Hire Us (Maybe)" logo-src="assets/logo-sloth-small.jpg" on-navigate="{{ nav }}" on-cta="{{ goHire }}" hint-size="100%,72px"></x-import>
+  <section style="border-bottom:2px solid var(--ink);background-image:linear-gradient(rgba(0,0,0,0.025) 2px, transparent 2px),linear-gradient(90deg, rgba(0,0,0,0.025) 2px, transparent 2px);background-size:40px 40px;">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">THE TOOLS</x-import>
+      <h1 style="margin:0;font:var(--type-display-lg);letter-spacing:var(--ls-display-lg);text-transform:uppercase;color:var(--ink);white-space:pre-line;">Software that works
+so you don't have to.</h1>
+      <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:640px;">Products we built for our own laziness, now available for yours. All of them do one thing extremely well: less.</p>
+    </div>
+  </section>
+  <section style="border-bottom:2px solid var(--ink);">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:32px;">
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">BUILT FOR CLIENTS</x-import>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+        <sc-for list="{{ clients }}" as="c" hint-placeholder-count="2">
+          <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="dark" radius="{{ 8 }}" interactive="{{ true }}" hint-size="100%,320px">
+            <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
+              <div style="display:flex;width:100%;justify-content:space-between;align-items:flex-start;gap:16px;">
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.IconTile" name="{{ c.icon }}" size="{{ 64 }}" surface="dark" hint-size="64px,64px"></x-import>
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Chip" variant="tag" hint-size="auto,24px">{{ c.tag }}</x-import>
+              </div>
+              <h3 style="margin:0;font:700 32px/40px var(--font-display);letter-spacing:-1.28px;color:var(--white);">{{ c.name }}</h3>
+              <p style="margin:0;font:var(--type-body-md);color:#c6c6c6;">{{ c.desc }}</p>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <sc-for list="{{ c.points }}" as="cp" hint-placeholder-count="2">
+                  <div style="display:flex;gap:12px;align-items:baseline;font:var(--type-body-md);color:#c6c6c6;"><span style="font:500 12px/24px var(--font-mono);color:var(--white);">[OK]</span><span>{{ cp }}</span></div>
+                </sc-for>
+              </div>
+              <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:var(--text-ghost);">{{ c.chip }}</span>
+            </div>
+          </x-import>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:flex;flex-direction:column;gap:32px;">
+    <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">OUR OWN TOOLS</x-import>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="{{ p.surface }}" radius="{{ 8 }}" dashed="{{ p.dead }}" interactive="{{ p.live }}" hint-size="100%,320px">
+          <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
+            <div style="display:flex;width:100%;justify-content:space-between;align-items:flex-start;gap:16px;">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.IconTile" name="{{ p.icon }}" size="{{ 64 }}" surface="{{ p.tile }}" hint-size="64px,64px"></x-import>
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Chip" variant="version" hint-size="auto,24px">{{ p.version }}</x-import>
+            </div>
+            <h3 style="margin:0;font:700 24px/32px var(--font-display);letter-spacing:-0.96px;color:{{ p.titleColor }};">{{ p.name }}</h3>
+            <p style="margin:0;font:var(--type-body-md);color:{{ p.bodyColor }};">{{ p.desc }}</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <sc-for list="{{ p.points }}" as="pt" hint-placeholder-count="2">
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.ListItem" kind="check" hint-size="auto,24px">{{ pt }}</x-import>
+              </sc-for>
+            </div>
+            <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="{{ p.btnVariant }}" size="md" arrow="{{ p.live }}" on-click="{{ p.onTry }}" hint-size="auto,48px">{{ p.cta }}</x-import>
+          </div>
+        </x-import>
+      </sc-for>
+    </div>
+    </div>
+  </section>
+  <section style="border-top:2px solid var(--ink);background:var(--surface-card-alt);">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">CUSTOM WORK</x-import>
+        <h2 style="margin:0;font:var(--type-headline-lg);letter-spacing:var(--ls-headline-lg);text-transform:uppercase;color:var(--ink);">None of these fit your business? We'll build one that does.</h2>
+        <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:520px;">Web, mobile, desktop, automation. Tell us your most annoying workflow and we'll make it somebody else's problem (specifically, a computer's).</p>
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="primary" size="lg" arrow="{{ true }}" on-click="{{ goHire }}" hint-size="auto,56px">Start a Project</x-import>
+      </div>
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="black" hint-size="100%,240px">
+        <div style="display:flex;flex-direction:column;gap:12px;font:500 16px/28px var(--font-mono);color:#c6c6c6;">
+          <span style="color:var(--text-ghost);">// your future stack</span>
+          <span>&gt; sudo generate --target="YOUR_BUSINESS"</span>
+          <span>&gt; deploying effort... 2%</span>
+          <span>&gt; deploying results... 100%</span>
+          <span style="color:var(--white);">DONE. GO HOME EARLY.</span>
+        </div>
+      </x-import>
+    </div>
+  </section>
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Footer" variant="dark" hint-size="100%,160px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const goHire = () => { window.location.href = 'HireUs.dc.html'; };
+    const mk = (o) => ({ surface: 'paper', tile: 'grey', dead: false, live: true, btnVariant: 'primary', cta: 'Try It (Whenever)', titleColor: 'var(--ink)', bodyColor: 'var(--text-body)', onTry: goHire, ...o });
+    return {
+      navLinks: ['Tools', 'Manifesto', 'The Lab', 'Pricing', 'About', 'Blog'],
+      nav: (l) => { const m = { Home: 'Home.dc.html', Tools: 'Tools.dc.html', Manifesto: 'Manifesto.dc.html', 'The Lab': 'TheLab.dc.html', Pricing: 'Pricing.dc.html', About: 'About.dc.html', Blog: 'Blog.dc.html' }; window.location.href = m[l] || 'Home.dc.html'; },
+      clients: [
+        { icon: 'storefront', tag: 'CLIENT PRODUCT', name: 'Born To Glow', desc: 'A cosmetic e-commerce system built for Myanmar shoppers \u2014 catalog, cart, payments, and order tracking that runs itself.', points: ['Full storefront + admin, zero busywork', 'Built for Myanmar payments & delivery'], chip: 'SAMPLE \u2014 LIVE DEMO SOON' },
+        { icon: 'music_note', tag: 'CLIENT PRODUCT', name: 'L Key', desc: 'A guitar chords viewer and tuning toolkit for every kind of guitarist \u2014 from campfire strummers to session pros.', points: ['Chord library + instant transpose', 'Precision tuner, works offline'], chip: 'SAMPLE \u2014 IN BETA' },
+      ],
+      goHire: goHire,
+      products: [
+        mk({ icon: 'snooze', version: 'v2.0 Beta', name: 'The Auto-Napper', desc: 'Schedules your deep-work blocks, silences everything, and answers Slack with plausible typing indicators.', points: ['Plausible-deniability mode', 'Calendar camouflage'] }),
+        mk({ icon: 'event_busy', version: 'V 0.9.1', name: 'Meeting Mutiny', desc: 'Audits every recurring meeting and auto-declines the ones an email could have been. Sends the email.', points: ['Could-have-been-an-email detector', 'Auto-summary in 3 bullets'] }),
+        mk({ icon: 'shuffle', version: 'v1.3', name: 'Status Randomizer', desc: 'Enterprise-grade status updates, generated. Sounds busy, technically true, fully compliant.', points: ['Jargon dial (0\u201311)', 'PM-safe output'] }),
+        mk({ icon: 'bug_report', version: 'v4.1', name: 'Blame Generator', desc: 'Root-cause analysis that always finds a root cause. Usually the intern. Sometimes DNS.', points: ['It\u2019s always DNS mode', 'Postmortem autocomplete'] }),
+        mk({ icon: 'coffee', version: 'v1.0', name: 'Coffee Break\u2122', desc: 'Office logistics for the essentials: routes the fresh pot to whoever shipped something this week.', points: ['Merit-based caffeine', 'Kettle API included'] }),
+        mk({ icon: 'skull', version: 'v0.1 (RIP)', name: 'The Standing Desk App', desc: 'It reminded people to stand. Nobody stood. We respected that.', points: ['Abandoned with dignity', '0 daily active standers'], dead: true, live: false, surface: 'paper', btnVariant: 'abandoned', cta: 'Abandoned' }),
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

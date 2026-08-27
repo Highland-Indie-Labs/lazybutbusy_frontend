@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Efficient Paradox — design tokens (Tailwind CSS 4 @theme)
+   Source of truth: Lazy But Busy Design System
+   ============================================================ */
+@theme {
+  /* Color — strictly monochrome */
+  --color-paper: #fbf9f8;
+  --color-ink: #000000;
+  --color-white: #ffffff;
+  --color-surface-card: #fbf9f8;
+  --color-surface-alt: #efeded;
+  --color-surface-high: #e4e2e2;
+  --color-surface-dark: #303031;
+  --color-surface-dim: #dbdad9;
+  --color-body-text: #4c4546;
+  --color-muted: #5d5f5f;
+  --color-ghost: #848484;
+  --color-outline: #7e7576;
+  --color-on-dark: #c6c6c6;
+  --color-error: #ba1a1a;
+  /* Accent — "Lazy Orange". Use sparingly (hover shadows, notifications) */
+  --color-accent: #ff4d00;
+
+  /* Type */
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-hanken-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  --text-display-xl: 84px;
+  --text-display-xl--line-height: 88px;
+  --text-display-xl--letter-spacing: -3.36px;
+  --text-display-lg: 72px;
+  --text-display-lg--line-height: 76px;
+  --text-display-lg--letter-spacing: -2.88px;
+  --text-headline-lg: 40px;
+  --text-headline-lg--line-height: 48px;
+  --text-headline-lg--letter-spacing: -1.6px;
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 40px;
+  --text-headline-md--letter-spacing: -1.28px;
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 32px;
+  --text-headline-sm--letter-spacing: -0.96px;
+
+  /* Hard shadows — never blurred */
+  --shadow-hard-md: 8px 8px 0 0 #000;
+  --shadow-hard-sm: 4px 4px 0 0 #000;
+  --shadow-hard-accent: 8px 8px 0 0 #ff4d00;
+
+  /* Motion — mechanical snap, no soft fades */
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@layer base {
+  html { background: var(--color-paper); }
+  body {
+    background: var(--color-paper);
+    color: var(--color-body-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--color-ink); }
+  a:hover { color: var(--color-body-text); }
+  ::selection { background: var(--color-ink); color: var(--color-paper); }
+}
+
+@utility grid-paper {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 2px, transparent 2px);
+  background-size: 40px 40px;
+}
+
+@utility container-lbb {
+  margin-inline: auto;
+  max-width: 1200px;
+  padding-inline: 32px;
+}

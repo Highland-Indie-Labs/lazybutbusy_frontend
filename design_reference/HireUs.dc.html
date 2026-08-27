@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/colors.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/typography.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/effects.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/tokens/base.css">
+<link rel="stylesheet" href="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/styles.css">
+<script src="_ds/lazy-but-busy-design-system-732be8d9-06f1-4bed-98a4-5d960cf71624/_ds_bundle.js"></script>
+<style>html,body{margin:0;padding:0;background:#fbf9f8;} a{color:#000;} a:hover{color:#4c4546;}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--paper);display:flex;flex-direction:column;" data-screen-label="Hire Us">
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.TopNavBar" links="{{ navLinks }}" cta="Hire Us (Maybe)" logo-src="assets/logo-sloth-small.jpg" on-navigate="{{ nav }}" on-cta="{{ noop }}" hint-size="100%,72px"></x-import>
+  <section style="flex:1;background-image:linear-gradient(rgba(0,0,0,0.025) 2px, transparent 2px),linear-gradient(90deg, rgba(0,0,0,0.025) 2px, transparent 2px);background-size:40px 40px;">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:32px;align-items:flex-start;">
+        <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.SectionHeading" level="label" hint-size="auto,40px">CONTACT</x-import>
+        <h1 style="margin:0;font:var(--type-display-lg);letter-spacing:var(--ls-display-lg);text-transform:uppercase;color:var(--ink);white-space:pre-line;">Hire us
+(maybe).</h1>
+        <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);max-width:420px;">Tell us the most annoying part of running your business. We'll reply within 24 hours with either a plan or a very good excuse.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <span style="font:500 16px/24px var(--font-mono);letter-spacing:1.6px;text-transform:uppercase;color:var(--ink);">HELLO@LAZYBUTBUSY.COM</span>
+          <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:var(--text-ghost);">RESPONSE TIME: 24H (BUSINESS NAPS EXCLUDED)</span>
+        </div>
+        <div style="width:100%;max-width:360px;">
+          <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.LazyLoader" label="INBOX STATUS: MOSTLY EMPTY" hint-size="100%,32px"></x-import>
+        </div>
+      </div>
+      <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Card" surface="paper" hint-size="100%,720px">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:24px;">
+            <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);">PROJECT INTAKE FORM (SHORT, WE PROMISE)</span>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Input" label="YOUR NAME" placeholder="Someone busy" value="{{ name }}" on-change="{{ setName }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Input" label="EMAIL" placeholder="you@company.com" value="{{ email }}" on-change="{{ setEmail }}" hint-size="100%,64px"></x-import>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Input" label="COMPANY (OPTIONAL)" placeholder="Your business" value="{{ company }}" on-change="{{ setCompany }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Input" label="BUDGET BALLPARK (OPTIONAL)" placeholder="$5K? $50K? Vibes?" value="{{ budget }}" on-change="{{ setBudget }}" hint-size="100%,64px"></x-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;letter-spacing:1.2px;color:var(--on-surface);">WHAT DO YOU NEED?</span>
+              <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Checkbox" label="Web app" checked="{{ wantWeb }}" on-change="{{ setWeb }}" hint-size="auto,24px"></x-import>
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Checkbox" label="Mobile app" checked="{{ wantMobile }}" on-change="{{ setMobile }}" hint-size="auto,24px"></x-import>
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Checkbox" label="Automation" checked="{{ wantAuto }}" on-change="{{ setAuto }}" hint-size="auto,24px"></x-import>
+                <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Checkbox" label="Not sure (honest)" checked="{{ wantIdk }}" on-change="{{ setIdk }}" hint-size="auto,24px"></x-import>
+              </div>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;">
+              <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;letter-spacing:1.2px;color:var(--on-surface);">THE ANNOYING PROBLEM</span>
+              <textarea rows="{{ 4 }}" placeholder="Describe the workflow that makes everyone sigh..." value="{{ message }}" onChange="{{ setMessage }}" style="box-sizing:border-box;width:100%;background:transparent;border:none;border-radius:0;outline:none;font:400 16px/24px var(--font-body);color:var(--on-surface);padding:12px;box-shadow:var(--edge-2);resize:vertical;"></textarea>
+            </label>
+            <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+              <span style="font:500 12px/16px var(--font-mono);text-transform:uppercase;color:#ba1a1a;">{{ error }}</span>
+            </sc-if>
+            <sc-if value="{{ sending }}" hint-placeholder-val="{{ false }}">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.LazyLoader" label="SENDING... (EVENTUALLY)" progress="{{ sendProgress }}" hint-size="100%,32px"></x-import>
+            </sc-if>
+            <sc-if value="{{ notSending }}" hint-placeholder-val="{{ true }}">
+              <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="primary" size="lg" arrow="{{ true }}" block="{{ true }}" on-click="{{ submit }}" hint-size="100%,56px">Send It (We'll See It)</x-import>
+            </sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;">
+            <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Chip" variant="banner" tilt="{{ true }}" hint-size="auto,32px">REQUEST RECEIVED</x-import>
+            <h2 style="margin:0;font:700 40px/48px var(--font-display);letter-spacing:-1.6px;text-transform:uppercase;color:var(--ink);">We'll reply (eventually).</h2>
+            <p style="margin:0;font:var(--type-body-lg);color:var(--text-body);">Your problem is now officially our problem. Expect a reply within 24 hours — a plan, a quote, or a genuinely impressive excuse.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;font:500 16px/28px var(--font-mono);color:var(--text-muted);">
+              <span>&gt; ticket #{{ ticket }} created</span>
+              <span>&gt; assigned to: whoever wakes up first</span>
+              <span style="color:var(--ink);">STATUS: OPTIMIZING... (SLOWLY)</span>
+            </div>
+            <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Button" variant="secondary" size="md" on-click="{{ reset }}" hint-size="auto,48px">Send Another One</x-import>
+          </div>
+        </sc-if>
+      </x-import>
+    </div>
+  </section>
+  <x-import component-from-global-scope="LazyButBusyDesignSystem_732be8.Footer" variant="dark" hint-size="100%,160px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name: '', email: '', company: '', budget: '', message: '', wantWeb: false, wantMobile: false, wantAuto: false, wantIdk: false, error: '', phase: 'idle', progress: 0, ticket: '0000' };
+  submit = () => {
+    const s = this.state;
+    if (!s.name.trim()) return this.setState({ error: 'ERROR: NAME REQUIRED. WE\u2019RE LAZY, NOT PSYCHIC.' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email)) return this.setState({ error: 'ERROR: THAT EMAIL LOOKS FAKE. TRY A REAL ONE.' });
+    if (!s.message.trim()) return this.setState({ error: 'ERROR: DESCRIBE THE PROBLEM. ONE SENTENCE IS FINE.' });
+    this.setState({ error: '', phase: 'sending', progress: 0 });
+    let p = 0;
+    this._t = setInterval(() => {
+      p += p < 70 ? Math.random() * 9 : 0.4;
+      if (p >= 82) { clearInterval(this._t); this.setState({ progress: 100 }); setTimeout(() => this.setState({ phase: 'sent', ticket: String(Math.floor(1000 + Math.random() * 9000)) }), 500); }
+      else this.setState({ progress: p });
+    }, 120);
+  };
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const s = this.state;
+    const set = (k) => (e) => this.setState({ [k]: e && e.target ? e.target.value : e });
+    const setB = (k) => (v) => this.setState({ [k]: v });
+    return {
+      navLinks: ['Tools', 'Manifesto', 'The Lab', 'Pricing', 'About', 'Blog'],
+      nav: (l) => { const m = { Home: 'Home.dc.html', Tools: 'Tools.dc.html', Manifesto: 'Manifesto.dc.html', 'The Lab': 'TheLab.dc.html', Pricing: 'Pricing.dc.html', About: 'About.dc.html', Blog: 'Blog.dc.html' }; window.location.href = m[l] || 'Home.dc.html'; },
+      noop: () => {},
+      name: s.name, email: s.email, company: s.company, budget: s.budget, message: s.message,
+      setName: set('name'), setEmail: set('email'), setCompany: set('company'), setBudget: set('budget'), setMessage: set('message'),
+      wantWeb: s.wantWeb, wantMobile: s.wantMobile, wantAuto: s.wantAuto, wantIdk: s.wantIdk,
+      setWeb: setB('wantWeb'), setMobile: setB('wantMobile'), setAuto: setB('wantAuto'), setIdk: setB('wantIdk'),
+      hasError: !!s.error, error: s.error,
+      sending: s.phase === 'sending', notSending: s.phase !== 'sending', sendProgress: s.progress,
+      sent: s.phase === 'sent', notSent: s.phase !== 'sent', ticket: s.ticket,
+      submit: this.submit,
+      reset: () => this.setState({ phase: 'idle', progress: 0, name: '', email: '', company: '', budget: '', message: '', wantWeb: false, wantMobile: false, wantAuto: false, wantIdk: false, error: '' }),
+    };
+  }
+}
+</script>
+</body>
+</html>
