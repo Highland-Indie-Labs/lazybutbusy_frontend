@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { TopNavBar } from "@/components/navigation/top-nav-bar";
 import { Footer } from "@/components/navigation/footer";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 
 const spaceGrotesk = localFont({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <TopNavBar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
